@@ -1,24 +1,16 @@
 terraform {
-  required_version = "~> 1"
+  required_version = "1.2.4"
 
   required_providers {
     aws = {
-      source = "hashicorp/aws"
-    }
-    random = {
-      source = "hashicorp/random"
-    }
-    template = {
-      source = "hashicorp/template"
-    }
-    null = {
-      source = "hashicorp/null"
+      source  = "hashicorp/aws"
+      version = "4.6.0"
     }
   }
 
   backend "s3" {
-    key    = "terraform.tfstate"
-    bucket = "nginx-development-environment"
+    key    = "nginx-terraform.tfstate"
+    bucket = "jenkins-development-environment"
     region = "us-west-2"
   }
 }
